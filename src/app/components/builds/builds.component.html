@@ -1,0 +1,87 @@
+<div class="th-section-label">Simulador de Builds</div>
+
+<!--  Selectores -->
+<div class="row g-2 mb-3">
+  <div class="col-6">
+    <div class="th-card selector-card">
+      <div class="selector-label">Warframe</div>
+      <!-- ngModel -->
+      <select class="selector-select" [(ngModel)]="warframeSeleccionado">
+        <option *ngFor="let wf of warframes" [value]="wf">{{ wf }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="th-card selector-card">
+      <div class="selector-label">Arma</div>
+      <select class="selector-select" [(ngModel)]="armaSeleccionada">
+        <option *ngFor="let arma of armas" [value]="arma">{{ arma }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Interpolación -->
+<p class="seleccion-actual">
+  Configurando: <strong>{{ warframeSeleccionado }}</strong> +
+  <strong>{{ armaSeleccionada }}</strong>
+</p>
+
+<!--  Rejilla de mods  -->
+<div class="th-section-label">Ranuras de mods ({{ ranurasOcupadas }}/8)</div>
+
+<div class="mod-grid mb-3">
+  <!-- ngFor -->
+  <div
+    *ngFor="let slot of ranuras"
+    class="mod-slot"
+    [ngClass]="{
+      'mod--coral': slot.color === 'coral',
+      'mod--blue': slot.color === 'blue',
+      'mod--vacio': slot.nombre === null,
+    }"
+    (click)="quitar(slot)"
+  >
+    <!-- ngIf - else -->
+    <span *ngIf="slot.nombre; else vacia" class="mod-nombre">{{
+      slot.nombre
+    }}</span>
+    <ng-template #vacia><span class="mod-mas">+</span></ng-template>
+  </div>
+</div>
+
+<!--  Mods disponibles para equipar  -->
+<div class="th-section-label">Mods disponibles</div>
+<div class="mods-disponibles mb-3">
+  <button
+    *ngFor="let mod of modsDisponibles"
+    class="mod-chip"
+    (click)="equipar(mod)"
+  >
+    {{ mod }}
+  </button>
+</div>
+
+<!--  Estadísticas calculadas  -->
+<div class="th-section-label">Estadísticas simuladas</div>
+<div class="th-card mb-3">
+  <div class="stat-row">
+    <span class="stat-label">Daño base</span>
+    <span class="stat-value stat--coral">{{ estadisticas.danioBase }}</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">Daño crítico</span>
+    <span class="stat-value stat--coral">{{ estadisticas.danioCritico }}</span>
+  </div>
+  <div class="stat-row">
+    <span class="stat-label">% Estado</span>
+    <span class="stat-value stat--blue"
+      >{{ estadisticas.porcentajeEstado }}%</span
+    >
+  </div>
+</div>
+
+<!-- Property binding -->
+<button class="th-btn th-btn--coral" [disabled]="ranurasOcupadas === 0">
+  Guardar build
+</button>

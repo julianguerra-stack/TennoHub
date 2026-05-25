@@ -1,0 +1,57 @@
+<div class="th-section-label">Objetivo activo</div>
+
+<!--  Objetivo con progreso por piezas  -->
+<div class="th-card objetivo-card mb-3">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <span class="objetivo-nombre">{{ objetivo.nombre }}</span>
+    <!-- Interpolación -->
+    <span class="th-chip th-chip--green">
+      {{ objetivo.piezasObtenidas }}/{{ objetivo.piezasTotales }}
+    </span>
+  </div>
+
+  <!-- ngFor + ngClass -->
+  <div class="dots mb-2">
+    <span
+      *ngFor="let lleno of dots"
+      class="dot"
+      [ngClass]="lleno ? 'dot--lleno' : 'dot--vacio'"
+    ></span>
+    <span class="dots-texto">
+      {{ objetivo.piezasObtenidas }} de {{ objetivo.piezasTotales }} piezas
+    </span>
+  </div>
+
+  <div class="objetivo-falta">Falta: {{ objetivo.siguientePieza }}</div>
+</div>
+
+<!--  Recursos necesarios  -->
+<div class="th-section-label">Recursos necesarios</div>
+
+<!-- ngFor -->
+<div *ngFor="let recurso of recursos" class="th-card recurso-row mb-2">
+  <!-- Property binding -->
+  <div
+    class="recurso-icon"
+    [style.background]="'var(--th-' + recurso.color + ')'"
+  ></div>
+  <div class="flex-grow-1">
+    <div class="recurso-nombre">
+      {{ recurso.nombre }} ×{{ recurso.cantidad }}
+    </div>
+    <div class="recurso-ubicacion">{{ recurso.ubicacion }}</div>
+  </div>
+  <!-- Event binding -->
+  <button
+    [ngClass]="claseChip(recurso)"
+    class="recurso-btn"
+    (click)="irANodo(recurso)"
+  >
+    Ir
+  </button>
+</div>
+
+<!-- ngIf -->
+<div *ngIf="mensaje" class="mensaje-ruta mt-2">
+  <i class="bi bi-geo-alt-fill me-1"></i>{{ mensaje }}
+</div>

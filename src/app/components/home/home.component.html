@@ -1,0 +1,62 @@
+<!-- Objetivo de sesión -->
+<div class="th-section-label">Objetivo de hoy</div>
+
+<div class="th-card objetivo-card mb-3">
+  <span class="th-chip th-chip--coral mb-2 d-inline-block">{{
+    objetivo.nombre
+  }}</span>
+  <!-- Interpolación -->
+  <div class="objetivo-titulo">Te falta: {{ objetivo.siguientePieza }}</div>
+  <div class="objetivo-sub">
+    Progreso: {{ objetivo.piezasObtenidas }} /
+    {{ objetivo.piezasTotales }} piezas
+  </div>
+  <!-- Event binding -->
+  <a
+    class="th-chip th-chip--coral mt-2 d-inline-block objetivo-btn"
+    routerLink="/farmeo"
+    >Ir al rastreador</a
+  >
+</div>
+
+<!-- Fundición -->
+<div class="th-section-label">Fundición</div>
+
+<div class="th-card mb-3">
+  <!-- ngFor -->
+  <div
+    *ngFor="let item of fundicion; let ultimo = last"
+    class="fundicion-row"
+    [class.border-bottom-row]="!ultimo"
+  >
+    <div class="fundicion-icon"></div>
+    <div class="flex-grow-1">
+      <div class="fundicion-nombre">{{ item.nombre }}</div>
+      <div class="th-progress">
+        <!-- Property binding -->
+        <div
+          class="th-progress__fill"
+          [style.width.%]="item.progreso"
+          [style.background]="colorBarra(item)"
+        ></div>
+      </div>
+    </div>
+    <!-- ngClass chip de estado -->
+    <span [ngClass]="claseChip(item)">
+      {{ item.listo ? "¡Listo!" : item.tiempoRestante }}
+    </span>
+  </div>
+</div>
+
+<!-- Alerta destacada -->
+<!-- ngIf -->
+<div *ngIf="alertaDestacada" class="alerta-banner" [appResaltarUrgente]="true">
+  <span class="alerta-dot"></span>
+  <div>
+    <div class="alerta-titulo">{{ alertaDestacada.titulo }} ha llegado</div>
+    <div class="alerta-sub">
+      {{ alertaDestacada.descripcion }} ·
+      {{ alertaDestacada.tiempoRestante }} restantes
+    </div>
+  </div>
+</div>

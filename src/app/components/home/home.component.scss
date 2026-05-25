@@ -1,0 +1,79 @@
+.objetivo-card {
+  border-left: 3px solid var(--th-coral);
+}
+
+.objetivo-titulo {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--th-text-1);
+}
+
+.objetivo-sub {
+  font-size: 0.82rem;
+  color: var(--th-text-2);
+  margin-top: 0.15rem;
+}
+
+.objetivo-btn {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Filas de la Fundición */
+.fundicion-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0;
+}
+
+.border-bottom-row {
+  border-bottom: 0.5px solid var(--th-border);
+}
+
+.fundicion-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: var(--th-border);
+  flex-shrink: 0;
+}
+
+.fundicion-nombre {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--th-text-1);
+  margin-bottom: 0.25rem;
+}
+
+/* Banner de alerta */
+.alerta-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: rgba(232, 80, 58, 0.08);
+  border: 0.5px solid rgba(232, 80, 58, 0.3);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+}
+
+.alerta-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--th-coral);
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+.alerta-titulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--th-coral);
+}
+
+.alerta-sub {
+  font-size: 0.78rem;
+  color: var(--th-text-2);
+  margin-top: 0.1rem;
+}

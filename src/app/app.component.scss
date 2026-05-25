@@ -1,0 +1,88 @@
+.app-shell {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--th-bg);
+  position: relative;
+}
+
+/* Cabecera */
+.app-header {
+  height: 56px;
+  background: var(--th-surface);
+  border-bottom: 0.5px solid var(--th-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--th-coral);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.header-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--th-text-1);
+  line-height: 1.1;
+}
+
+.header-mr {
+  font-size: 0.7rem;
+  color: var(--th-text-3);
+}
+
+.header-bell {
+  font-size: 1.1rem;
+  color: var(--th-text-2);
+}
+
+/* Contenido */
+.app-content {
+  flex: 1;
+  padding: 1rem 0.9rem 1.5rem;
+  overflow-y: auto;
+}
+
+/* Navegación inferior */
+.app-nav {
+  height: 60px;
+  background: var(--th-surface);
+  border-top: 0.5px solid var(--th-border);
+  position: sticky;
+  bottom: 0;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--th-text-3);
+  font-size: 1.1rem;
+  transition: color 0.15s ease;
+}
+
+.nav-item:hover {
+  color: var(--th-text-2);
+}
+
+.nav-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+}
+
+.nav-item--active {
+  color: var(--th-coral);
+}

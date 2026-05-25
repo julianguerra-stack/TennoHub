@@ -1,0 +1,35 @@
+<!-- Marco de móvil que contiene toda la SPA -->
+<div class="app-shell">
+  <!--  Cabecera  -->
+  <header class="app-header d-flex align-items-center px-3">
+    <div class="avatar d-flex align-items-center justify-content-center">
+      {{ tenno.nombre.charAt(0) }}
+    </div>
+    <!-- Interpolación: nombre y rango de maestría del jugador -->
+    <div class="ms-2">
+      <div class="header-name">Hola, {{ tenno.nombre }}</div>
+      <div class="header-mr">Rango de Maestría {{ tenno.rangoMaestria }}</div>
+    </div>
+    <i class="bi bi-bell ms-auto header-bell"></i>
+  </header>
+
+  <!-- Contenido -->
+  <main class="app-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Navegación inferior -->
+  <nav class="app-nav d-flex">
+    <!-- ngFor: directiva estructural que genera un botón por cada sección -->
+    <a
+      *ngFor="let item of navItems"
+      class="nav-item"
+      [routerLink]="item.ruta"
+      routerLinkActive="nav-item--active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="bi" [ngClass]="item.icono"></i>
+      <span class="nav-label">{{ item.etiqueta }}</span>
+    </a>
+  </nav>
+</div>

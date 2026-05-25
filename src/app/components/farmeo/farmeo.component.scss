@@ -1,0 +1,76 @@
+.objetivo-card {
+  border-left: 3px solid var(--th-green);
+}
+
+.objetivo-nombre {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--th-text-1);
+}
+
+/* Dots de progreso */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.dot--lleno { background: var(--th-green); }
+.dot--vacio { background: var(--th-border); }
+
+.dots-texto {
+  font-size: 0.75rem;
+  color: var(--th-text-2);
+  margin-left: 0.4rem;
+}
+
+.objetivo-falta {
+  font-size: 0.82rem;
+  color: var(--th-text-2);
+}
+
+/* Filas de recursos */
+.recurso-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0.85rem;
+}
+
+.recurso-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.recurso-nombre {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--th-text-1);
+}
+
+.recurso-ubicacion {
+  font-size: 0.75rem;
+  color: var(--th-text-3);
+}
+
+.recurso-btn {
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mensaje-ruta {
+  font-size: 0.8rem;
+  color: var(--th-green);
+  background: rgba(29, 158, 117, 0.08);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+}

@@ -1,0 +1,68 @@
+.filtro-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--th-card);
+  border: 0.5px solid var(--th-border);
+  border-radius: 10px;
+  padding: 0.6rem 0.85rem;
+}
+
+.filtro-texto {
+  font-size: 0.85rem;
+  color: var(--th-text-2);
+}
+
+/* Tarjetas de alerta relevante */
+.alerta-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+}
+
+.alerta--coral { background: rgba(232, 80, 58, 0.1);  border: 0.5px solid rgba(232, 80, 58, 0.35); }
+.alerta--blue  { background: rgba(108, 140, 255, 0.08); border: 0.5px solid rgba(108, 140, 255, 0.25); }
+.alerta--green { background: rgba(29, 158, 117, 0.08); border: 0.5px solid rgba(29, 158, 117, 0.25); }
+.alerta--amber { background: rgba(212, 138, 0, 0.08);  border: 0.5px solid rgba(212, 138, 0, 0.25); }
+
+.alerta-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+.alerta-titulo {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.alerta-desc {
+  font-size: 0.78rem;
+  color: var(--th-text-2);
+  margin-top: 0.1rem;
+}
+
+/* Eventos secundarios */
+.evento-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.85rem;
+}
+
+.evento-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.evento-titulo {
+  font-size: 0.82rem;
+  color: var(--th-text-2);
+}

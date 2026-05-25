@@ -1,0 +1,55 @@
+<!-- Filtro (two-way binding con ngModel) -->
+<div class="filtro-row mb-3">
+  <span class="filtro-texto">Mostrar solo relevantes</span>
+  <div class="form-check form-switch m-0">
+    <!-- ngModel -->
+    <input
+      class="form-check-input"
+      type="checkbox"
+      [(ngModel)]="soloRelevantes"
+    />
+  </div>
+</div>
+
+<!-- Relevantes para ti -->
+<div class="th-section-label">
+  <i class="bi bi-star-fill me-1"></i>Relevantes para ti
+</div>
+
+<!-- ngFor -->
+<div
+  *ngFor="let alerta of relevantes"
+  class="alerta-card mb-2"
+  [ngClass]="'alerta--' + alerta.tipo"
+  [appResaltarUrgente]="alerta.relevante"
+>
+  <span
+    class="alerta-dot"
+    [style.background]="'var(--th-' + alerta.tipo + ')'"
+  ></span>
+  <div class="flex-grow-1">
+    <!-- Interpolación -->
+    <div class="alerta-titulo" [style.color]="'var(--th-' + alerta.tipo + ')'">
+      {{ alerta.titulo }}
+    </div>
+    <div class="alerta-desc">{{ alerta.descripcion }}</div>
+    <span [ngClass]="claseChip(alerta.tipo)" class="mt-1 d-inline-block">
+      {{ alerta.tiempoRestante }} restantes
+    </span>
+  </div>
+</div>
+
+<!-- Otros eventos -->
+<!-- ngIf -->
+<ng-container *ngIf="!soloRelevantes">
+  <div class="th-section-label mt-3">Otros eventos</div>
+
+  <div *ngFor="let alerta of secundarias" class="th-card evento-row mb-2">
+    <span
+      class="evento-dot"
+      [style.background]="'var(--th-' + alerta.tipo + ')'"
+    ></span>
+    <span class="evento-titulo flex-grow-1">{{ alerta.titulo }}</span>
+    <span [ngClass]="claseChip(alerta.tipo)">{{ alerta.tiempoRestante }}</span>
+  </div>
+</ng-container>

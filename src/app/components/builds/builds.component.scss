@@ -1,0 +1,116 @@
+.selector-card {
+  padding: 0.6rem 0.75rem;
+}
+
+.selector-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--th-text-3);
+  margin-bottom: 0.25rem;
+}
+
+.selector-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--th-text-1);
+  font-size: 0.9rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.selector-select option {
+  background: var(--th-card);
+  color: var(--th-text-1);
+}
+
+.seleccion-actual {
+  font-size: 0.8rem;
+  color: var(--th-text-2);
+  margin-bottom: 1rem;
+}
+
+.seleccion-actual strong { color: var(--th-text-1); }
+
+/* Rejilla de mods 4 columnas */
+.mod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.mod-slot {
+  aspect-ratio: 1 / 1;
+  border-radius: 7px;
+  background: var(--th-card);
+  border: 1px solid var(--th-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+  text-align: center;
+  transition: border-color 0.15s ease;
+}
+
+.mod--coral { border-color: var(--th-coral); }
+.mod--blue  { border-color: var(--th-blue); }
+.mod--vacio { border-style: dashed; border-color: var(--th-border); cursor: default; }
+
+.mod-nombre {
+  font-size: 0.6rem;
+  color: var(--th-text-2);
+  line-height: 1.1;
+}
+
+.mod-mas {
+  font-size: 1.2rem;
+  color: var(--th-text-3);
+}
+
+/* Mods disponibles */
+.mods-disponibles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mod-chip {
+  background: var(--th-card);
+  border: 0.5px solid var(--th-border);
+  color: var(--th-text-2);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mod-chip:hover {
+  border-color: var(--th-coral);
+  color: var(--th-coral);
+}
+
+/* Estadísticas */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--th-text-2);
+}
+
+.stat-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.stat--coral { color: var(--th-coral); }
+.stat--blue  { color: var(--th-blue); }

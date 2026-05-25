@@ -1,0 +1,58 @@
+<div class="th-section-label">En fabricación</div>
+
+<!-- Crafteos en curso (con anillo de progreso) -->
+<!-- *ngIf -->
+<div *ngIf="enProgreso.length === 0" class="vacio-msg th-card mb-3">
+  No tienes objetos en fabricación.
+</div>
+
+<div *ngFor="let item of enProgreso" class="th-card crafteo-row mb-3">
+  <!-- Property binding -->
+  <div class="anillo" [style.background]="anilloGradiente(item)">
+    <div class="anillo-centro">{{ item.progreso }}%</div>
+  </div>
+  <div class="flex-grow-1">
+    <div class="crafteo-nombre">{{ item.nombre }}</div>
+    <div class="th-progress mt-1">
+      <div
+        class="th-progress__fill"
+        [style.width.%]="item.progreso"
+        [style.background]="'var(--th-coral)'"
+      ></div>
+    </div>
+    <!-- Interpolación -->
+    <div class="crafteo-tiempo">Tiempo restante: {{ item.tiempoRestante }}</div>
+  </div>
+</div>
+
+<!--  Objetos listos para reclamar -->
+<!-- ngIf -->
+<ng-container *ngIf="listos.length > 0">
+  <div class="th-section-label">Listo para reclamar</div>
+
+  <!-- appResaltarUrgente -->
+  <div
+    *ngFor="let item of listos"
+    class="th-card listo-card mb-2"
+    [appResaltarUrgente]="item.listo"
+  >
+    <div class="listo-check"><i class="bi bi-check-lg"></i></div>
+    <div class="flex-grow-1">
+      <div class="crafteo-nombre">{{ item.nombre }}</div>
+      <span class="th-chip th-chip--green mt-1 d-inline-block"
+        >¡Fabricación completa!</span
+      >
+    </div>
+  </div>
+
+  <!-- Event binding -->
+  <button class="th-btn th-btn--green mb-3" (click)="reclamar(listos[0])">
+    Reclamar {{ listos[0].nombre }}
+  </button>
+</ng-container>
+
+<!-- Nueva fabricación -->
+<div class="th-section-label">Nueva fabricación</div>
+<button class="nueva-fabricacion">
+  <i class="bi bi-plus-lg me-1"></i> Añadir a la cola
+</button>
