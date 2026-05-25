@@ -5,7 +5,7 @@ import { FarmeoComponent } from "./components/farmeo/farmeo.component";
 import { FundicionComponent } from "./components/fundicion/fundicion.component";
 import { AlertasComponent } from "./components/alertas/alertas.component";
 
-// Rutas de la SPA. El enrutador de Angular intercambia el componente activo
+// Rutas de la SPA.
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },

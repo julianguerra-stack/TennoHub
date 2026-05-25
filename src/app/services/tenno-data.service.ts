@@ -14,14 +14,14 @@ import {
 
 @Injectable({ providedIn: "root" })
 export class TennoDataService {
-  // ---- Perfil ----
+  //  Perfil
   private tenno: Tenno = { nombre: "Tenno", rangoMaestria: 16 };
 
   getTenno(): Tenno {
     return this.tenno;
   }
 
-  // ---- Fundición ----
+  //  Fundición
   private fundicion: ItemFundicion[] = [
     {
       id: 1,
@@ -48,7 +48,7 @@ export class TennoDataService {
     this.fundicion = this.fundicion.filter((item) => item.id !== id);
   }
 
-  // ---- Objetivo de farmeo ----
+  //  Objetivo de farmeo
   private objetivo: ObjetivoFarmeo = {
     nombre: "Ash Prime Set",
     piezasObtenidas: 3,
@@ -60,7 +60,7 @@ export class TennoDataService {
     return this.objetivo;
   }
 
-  // ---- Recursos ----
+  //  Recursos
   private recursos: Recurso[] = [
     {
       id: 1,
@@ -89,7 +89,7 @@ export class TennoDataService {
     return this.recursos;
   }
 
-  // ---- Builds: catálogos y ranuras ----
+  //  Builds: catálogos y ranuras
   private warframes: string[] = ["Excalibur", "Volt", "Mag", "Rhino", "Frost"];
   private armas: string[] = ["Nikana", "Braton", "Soma", "Tigris", "Lex"];
 
@@ -155,7 +155,7 @@ export class TennoDataService {
     };
   }
 
-  // ---- Alertas ----
+  //  Alertas
   private alertas: Alerta[] = [
     {
       id: 1,
