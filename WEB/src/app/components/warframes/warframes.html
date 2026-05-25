@@ -1,0 +1,110 @@
+<section class="perfil-section">
+  <div class="container">
+
+    <!-- ═══ PERFIL DEL TENNO ═══ -->
+    <p class="section-label">Perfil del Tenno</p>
+    <div class="perfil-header">
+      <img src="/avatar.webp" alt="Avatar" class="perfil-avatar">
+      <div>
+        <h2>{{ usuario.nombre }}</h2>
+        <p class="perfil-sub">{{ usuario.rango }} · {{ usuario.clan }}</p>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="row g-3 mb-5">
+      <div class="col-6 col-md-3" *ngFor="let stat of usuario.stats">
+        <div class="stat-card">
+          <span class="stat-valor">{{ stat.valor }}</span>
+          <small>{{ stat.label }}</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ MIS WARFRAMES ═══ -->
+    <p class="section-label">Mis Warframes</p>
+    <input type="text" [(ngModel)]="busqueda" placeholder="Buscar Warframe..." />
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-md-4" *ngFor="let frame of warframesFiltrados()">
+        <div class="frame-card" (click)="seleccionar(frame)" [class.frame-activo]="frameSeleccionado === frame">
+          <img [src]="'/' + frame.img" [alt]="frame.nombre" class="frame-img">
+          <div class="frame-info">
+            <strong>{{ frame.nombre }}</strong>
+            <small>{{ frame.tipo }}</small>
+            <small>Forma: {{ frame.forma }}</small>
+          </div>
+          <span class="frame-nivel">Nv.{{ frame.nivel }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETALLE DEL WARFRAME -->
+    <div class="detalle-frame" *ngIf="frameSeleccionado">
+      <h4>{{ frameSeleccionado.nombre }}</h4>
+      <p>{{ frameSeleccionado.descripcion }}</p>
+    </div>
+
+    <!-- ═══ SIMULADOR DE BUILD ═══ -->
+    <p class="section-label" style="margin-top: 60px;">Simulador de Build</p>
+
+    <div class="row g-3 mb-4">
+      <div class="col-12 col-md-6">
+        <div class="selector-card">
+          <small class="selector-label">Warframe</small>
+          <select class="selector-select" [(ngModel)]="buildWarframe">
+            <option *ngFor="let w of buildWarframes" [value]="w">{{ w }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="selector-card">
+          <small class="selector-label">Arma</small>
+          <select class="selector-select" [(ngModel)]="buildArma">
+            <option *ngFor="let a of buildArmas" [value]="a">{{ a }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <p class="build-seleccion">Configurando: <strong>{{ buildWarframe }}</strong> + <strong>{{ buildArma }}</strong></p>
+
+    <p class="section-label">Ranuras de mods ({{ ranurasOcupadas() }}/8)</p>
+
+    <div class="mod-grid mb-4">
+      <div *ngFor="let slot of ranuras"
+           class="mod-slot"
+           [ngClass]="{ 'mod--coral': slot.color === 'coral', 'mod--blue': slot.color === 'blue', 'mod--vacio': slot.nombre === null }"
+           (click)="quitarMod(slot)">
+        <span *ngIf="slot.nombre; else vacio">{{ slot.nombre }}</span>
+        <ng-template #vacio><span class="mod-mas">+</span></ng-template>
+      </div>
+    </div>
+
+    <p class="section-label">Mods disponibles</p>
+    <div class="mods-disponibles mb-4">
+      <button *ngFor="let mod of modsDisponibles" class="mod-chip" (click)="equiparMod(mod)">
+        {{ mod }}
+      </button>
+    </div>
+
+    <p class="section-label">Estadísticas simuladas</p>
+    <div class="stats-build">
+      <div class="stat-row">
+        <span>Daño base</span>
+        <span class="stat-val coral">{{ estadisticas.danioBase }}</span>
+      </div>
+      <div class="stat-row">
+        <span>Daño crítico</span>
+        <span class="stat-val coral">{{ estadisticas.danioCritico }}</span>
+      </div>
+      <div class="stat-row">
+        <span>% Estado</span>
+        <span class="stat-val blue">{{ estadisticas.porcentajeEstado }}%</span>
+      </div>
+    </div>
+
+    <button class="btn-guardar" [disabled]="ranurasOcupadas() === 0">Guardar build</button>
+
+  </div>
+</section>

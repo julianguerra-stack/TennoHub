@@ -1,0 +1,47 @@
+nav {
+  background: rgba(15,17,23,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 0.5px solid var(--th-border);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand-text {
+  color: var(--th-coral);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+}
+
+.brand-companion {
+  color: var(--th-text-3);
+  font-size: 0.75rem;
+  margin-left: 8px;
+  letter-spacing: 3px;
+}
+
+.nav-link {
+  color: var(--th-text-3) !important;
+  margin: 0 8px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-bottom: 4px !important;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.nav-link:hover { color: var(--th-text-1) !important; }
+
+.nav-link.active {
+  color: var(--th-coral) !important;
+  border-bottom: 2px solid var(--th-coral);
+}
+
+.navbar-toggler { border-color: var(--th-border); filter: invert(1); }

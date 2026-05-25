@@ -1,0 +1,46 @@
+<section class="noticias-section">
+  <div class="container">
+
+    <!-- ═══ ALERTAS ═══ -->
+    <p class="section-label">Alertas y eventos</p>
+
+    <div class="filtro-row">
+      <span class="filtro-texto">Solo relevantes</span>
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="soloRelevantes">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div *ngFor="let alerta of alertasFiltradas()"
+         class="alerta-card"
+         [ngClass]="'alerta--' + alerta.tipo">
+      <span class="alerta-dot" [style.background]="colorTipo(alerta.tipo)"></span>
+      <div class="alerta-body">
+        <div class="alerta-titulo" [style.color]="colorTipo(alerta.tipo)">{{ alerta.titulo }}</div>
+        <div class="alerta-desc">{{ alerta.descripcion }}</div>
+        <span class="alerta-tag" [style.borderColor]="colorTipo(alerta.tipo)" [style.color]="colorTipo(alerta.tipo)">
+          {{ alerta.tiempoRestante }} restantes
+        </span>
+      </div>
+      <span class="alerta-tipo-badge">{{ alerta.tipo }}</span>
+    </div>
+
+    <!-- ═══ NOTICIAS ═══ -->
+    <p class="section-label" style="margin-top: 60px;">Noticias</p>
+
+    <input type="text" [(ngModel)]="filtro" placeholder="Filtrar noticias..." />
+
+    <div *ngFor="let noticia of noticiasFiltradas()">
+      <div class="noticia-card" (click)="toggleDetalle(noticia)">
+        <span class="noticia-tag" [ngClass]="noticia.tipo">{{ noticia.tipo }}</span>
+        <span class="noticia-titulo">{{ noticia.titulo }}</span>
+        <span class="noticia-fecha">{{ noticia.fecha }}</span>
+      </div>
+      <div class="noticia-detalle" *ngIf="noticia.verMas">
+        <p>{{ noticia.detalle }}</p>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <span class="brand-text">TENNOHUB</span>
+      <span class="brand-companion">Companion</span>
+    </a>
+    <button class="navbar-toggler" type="button" (click)="toggleMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" [class.show]="menuOpen">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngFor="let item of menuItems">
+          <a class="nav-link" [class.active]="item.active" (click)="setActive(item)" [href]="item.href">
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

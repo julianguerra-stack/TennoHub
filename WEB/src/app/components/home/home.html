@@ -1,0 +1,61 @@
+<div class="home-wrapper">
+
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="/fondo.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="nebula"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow">Bienvenido, Tenno</p>
+    <h1 class="hero-title">TENNOHUB<br><span>un nuevo Warframe Companion</span></h1>
+    <p class="hero-sub">Tu guía definitiva del universo Warframe</p>
+  </div>
+</section>
+
+  <!-- CICLOS DEL MUNDO -->
+  <section class="ciclos-section">
+    <div class="container">
+      <h2 class="section-label">Ciclos del mundo</h2>
+      <div class="row g-4">
+        <div class="col-12 col-md-4" *ngFor="let ciclo of ciclos">
+          <div class="ciclo-card" [style.backgroundImage]="'url(/' + ciclo.img + ')'">
+            <div class="ciclo-overlay"></div>
+            <div class="ciclo-content">
+              <span class="ciclo-icono">{{ ciclo.icono }}</span>
+              <h4>{{ ciclo.nombre }}</h4>
+              <p>{{ ciclo.estado }}</p>
+              <p class="ciclo-tiempo">{{ ciclo.tiempo }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMENDADO -->
+  <section class="recomendado-section">
+    <div class="container">
+      <h2 class="section-label">Recomendado para ti.</h2>
+      <p class="section-sub">{{ recomendadoSub }}</p>
+
+      <div *ngFor="let item of recomendados">
+        <div class="recomendado-card" [ngClass]="item.tier" (click)="seleccionarRecomendado(item)">
+          <span>{{ item.icono }}</span>
+          <div style="flex: 1; margin: 0 10px;">
+            <strong>{{ item.nombre }}</strong>
+            <small style="display: block;">{{ item.tipo }}</small>
+          </div>
+          <span>{{ item.progreso }}</span>
+        </div>
+      </div>
+
+      <div class="detalle-box" *ngIf="itemSeleccionado">
+        <h5>{{ itemSeleccionado.nombre }}</h5>
+        <p>{{ itemSeleccionado.descripcion }}</p>
+      </div>
+    </div>
+  </section>
+
+</div>
